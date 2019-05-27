@@ -70,6 +70,7 @@ int GRADOMAX(int gradoMax,int **matriz,int vertices){
 		lista[i] = Azar;
 	}
 }
+/*
 int GRADOMIN(int gradoMin,int **matriz,int vertices){
 	srand (time(NULL));
 	int *lista = (int *)malloc(sizeof(int )*gradoMin);
@@ -85,6 +86,7 @@ int GRADOMIN(int gradoMin,int **matriz,int vertices){
 		lista[i] = Azar;
 	}
 }
+*/
 int CrearGrafo(int vertices,int aristas,int ciclos , int Kregular ,int gradoMax,int gradoMin,int sumaPesos){
 	int  **matriz = (int  **) calloc(1000, sizeof(int*));
 	for (int i = 0; i < vertices; ++i)
