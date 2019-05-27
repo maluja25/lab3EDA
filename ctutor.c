@@ -62,10 +62,10 @@ void agregarArista(Nodo *aux1 , Nodo *aux2 , Arista *nuevo){
         a->siguiente = nuevo; 
     }
 }
-void insertarArista(){
+void insertarArista(Lista *lista,){
     int ini,fin;
     Arista *nuevo = (Arista *)malloc(sizeof(Arista));
-    Nodo *aux1;
+    Nodo *aux1,*aux2;
     if(inicio == NULL){
         printf("ERROR..\n");
     }
@@ -120,7 +120,7 @@ int main() {
     for(i=0;i<N;i++){
         insertarNodo(lista,i);
     }
-    insertarArista(lista);
+    insertarArista();
     visualizarGrafo();
     return 0;
 }
