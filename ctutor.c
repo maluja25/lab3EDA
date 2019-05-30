@@ -62,38 +62,28 @@ void agregarArista(Nodo *aux1 , Nodo *aux2 , Arista *nuevo){
         a->siguiente = nuevo; 
     }
 }
-void insertarArista(Lista *lista,){
-    int ini,fin;
+void insertarArista(Lista *lista,int ini,int fin){
     Arista *nuevo = (Arista *)malloc(sizeof(Arista));
+    nuevo->siguiente = NULL;
     Nodo *aux1,*aux2;
-    if(inicio == NULL){
-        printf("ERROR..\n");
-    }
-    ini = 1;
-    fin = 3;
-    aux1 = inicio;
-    aux2 = inicio;
+    aux1 = lista->inicio;
+    aux2 = lista->inicio;
     while(aux2 != NULL){
+        printf("dato %i\n",aux2->dato);
         if(aux2->dato == fin ){
             break;
         }
         aux2 = aux2->siguiente;
     }
-    if(aux2 == NULL){
-        printf("ERROR....\n");
-    }
-    while(aux1 ==NULL){
+    while(aux1 != NULL){
         if(aux1->dato ==ini){
             agregarArista(aux1,aux2,nuevo);
         }
         aux1 = aux1->siguiente;
     }
-    if(aux1 == NULL){
-        printf("ERROR....\n");
-    }
 }
-void visualizarGrafo(){
-    Nodo *aux=inicio;
+void visualizarGrafo(Lista *lista){
+    Nodo *aux=lista->inicio;
     Arista  *ar;
     printf("Nodos\n");
     while(aux!=NULL){   
@@ -116,11 +106,16 @@ int main() {
   int opcion,N,i;
     printf("Ingrese número de vertices:");
     //scanf("%i",&N);
-    N = 1;
+    N = 3;
     for(i=0;i<N;i++){
         insertarNodo(lista,i);
     }
-    insertarArista();
-    visualizarGrafo();
+    insertarArista(lista,0,1);
+    insertarArista(lista,0,2);
+    insertarArista(lista,1,0);
+    insertarArista(lista,1,2);
+    insertarArista(lista,2,0);
+    insertarArista(lista,2,1);
+    visualizarGrafo(lista);
     return 0;
 }
